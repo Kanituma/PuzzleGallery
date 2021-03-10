@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Puzzle Gallery</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<!-- loading -->
+   
+    <div id="loading">
+        <img src="images/loading_bg.png" id="loadbg">
+        <div id="load_title"></div>
+        <img id="load_text" src="images/loading_text.gif">
+        <img class="loader" src="images/load.gif">
+        <div id="progressbar">
+            <div id="progress">0</div>
+            <div id="outbar">
+                <div id="inbar"></div>
+            </div>
+            
+        </div>
+        
+    </div>
+<!-- Music -->
+    <div class="page0">
+        <audio src="audio/BGM.mp3" id="bgm" loop="loop"></audio>
+        <audio src="audio/audio1.mp3" id="audio1"></audio>
+        <audio src="audio/audio2.mp3" id="audio2"></audio>
+        <audio src="audio/audio3.mp3" id="audio3"></audio>
+        <audio src="audio/audio4.mp3" id="audio4"></audio>
+        <audio src="audio/audio5.mp3" id="audio5"></audio>
+        <audio src="audio/audio6.mp3" id="audio6"></audio>
+
+        <div id="bgmcontrol">
+            <div id="isbgmOn"></div>
+        </div>
+        
+    </div>
+<!-- 画廊外部 -->
+    <div class="page1">
+        <div id="opbtn"></div>
+        <div id="open">
+            <img src="images/sprite.jpg" alt="" id="openani">
+        </div>
+    </div>
+    <div class="white"></div>
+
+<!-- 画廊内部 -->
+    <div class="page2">
+            <div class="slide one rellax" data-rellax-speed="5" >
+                <span class="one-r"></span>
+                <div class="img img-b ione">
+                    <img src="images/p1.png" class="pic-b">
+                    <div class="mask">
+                        <img src="images/click.gif" alt="" id="click">
+                        <img src="images/clickrm.png" alt="" id="clrm">
+                       
+                    </div>
+                </div>
+                <!-- <img src="images/light-b.png" class="light lone rellax" data-rellax-speed="1"> -->
+                <img src="images/fence1.png" class="plant pone rellax" data-rellax-speed="1.3">
+            </div>
+            
+            <div class="slide two rellax" data-rellax-speed="3">
+                <div class="img img-s itwo">
+                    <img src="images/p2.png" class="pic-s">
+                    <div class="mask">
+                        <img src="images/click.gif" alt="" id="click">
+                        <img src="images/clickrm.png" alt="" id="clrm">
+                       
+                    </div>
+                </div>
+                <!-- <img src="images/light-s.png" class="light ltwo rellax" data-rellax-speed="0.5"> -->
+                 <img src="images/plant2.png" class="plant ptwo rellax" data-rellax-speed="0.8">
+            </div>
+           
+            <div class="slide three rellax" data-rellax-speed="5">
+                <span class="three-r"></span>
+                <div class="img img-b ithree">
+                    <img src="images/p3.png" class="pic-b">
+                    <div class="mask">
+                        <img src="images/click.gif" alt="" id="click">
+                        <img src="images/clickrm.png" alt="" id="clrm">
+                       
+                    </div>
+                </div>
+                <!-- <img src="images/light-b.png" class="light lthree rellax" data-rellax-speed="1"> -->
+                 <img src="images/chair3.png" class="plant pthree rellax" data-rellax-speed="1.3">
+            </div>
+           
+            <div class="slide four rellax" data-rellax-speed="4">
+                <div class="img img-s ifour">
+                    <img src="images/p4.png" class="pic-s">
+                    <div class="mask">
+                        <img src="images/click.gif" alt="" id="click">
+                        <img src="images/clickrm.png" alt="" id="clrm">
+                       
+                    </div>
+                </div>
+                <!-- <img src="images/light-s.png" class="light lfour rellax" data-rellax-speed="0.8"> -->
+                 <img src="images/plant4.png" class="plant pfour rellax" data-rellax-speed="0.8">
+            </div>
+           
+            <div class="slide five rellax" data-rellax-speed="6">
+                <span class="five-r"></span>
+                <div class="img img-b ifive">
+                    <img src="images/p5.png" class="pic-b">
+                    <div class="mask">
+                        <img src="images/click.gif" alt="" id="click">
+                        <img src="images/clickrm.png" alt="" id="clrm">
+                       
+                    </div>
+                </div>
+                <!-- <img src="images/light-b.png" class="light lfive rellax" data-rellax-speed="1"> -->
+                <img src="images/dog5.png" class="plant pfive rellax" data-rellax-speed="0.8">
+            </div>
+            
+            <div class="slide six rellax" data-rellax-speed="4" id="ssix">
+                <div class="img img-s isix">
+                    <img src="images/p6.png" class="pic-s">
+                    <div class="mask">
+                        <img src="images/click.gif" alt="" id="click">
+                        <img src="images/clickrm.png" alt="" id="clrm">
+                       
+                    </div>
+                </div>
+                <!-- <img src="images/light-s.png" class="light lsix rellax" data-rellax-speed="0.5"> -->
+                <img src="images/plant6.png" class="plant psix rellax" data-rellax-speed="0.8">
+            </div>
+            <div id="flrdiv" class="rellax" data-rellax-speed="5">
+                <div id="floor"></div>
+            </div>
+    </div>   
+
+<!-- 拼图部分 -->
+    <div class="page3">
+        <div class="pframe">
+            <svg id="puzzle" viewBox="0,0,400,800" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="back" opacity="0"><image xlink:href="images/p_p6.png" width="268.7" height="361" x="65.65" y="169.5"></g>
+                <g id="backframe"><image xlink:href="images/puzzle_lines.png" width="268.7" height="361" x="65.65" y="169.5"></g>
+                <g class="piece" id="0"><image xlink:href="images/p6_1.png" class="move" id="piece1"></image></g>
+                <g class="piece" id="1"><image xlink:href="images/p6_2.png" class="move" id="piece2"></image></g>
+                <g class="piece" id="2"><image xlink:href="images/p6_3.png" class="move" id="piece3"></image></g>
+                <g class="piece" id="3"><image xlink:href="images/p6_4.png" class="move" id="piece4"></image></g>
+                <g class="piece" id="4"><image xlink:href="images/p6_5.png" class="move" id="piece5"></image></g>
+                <g class="piece" id="5"><image xlink:href="images/p6_6.png" class="move" id="piece6"></image></g>
+            </svg>
+        </div>
+        <d id="gif_content">
+            <div id="p_gif"></div>
+        </d>
+        <img src="images/p1_title.png" alt="" id="p_title"> 
+        <div id="p_back"></div>
+        <div id="p_tip"></div>
+        <div id="p_story">
+            <div id="p_words"></div>
+           <div id="p_share"></div> 
+        </div>
+        <div id="blackbg"></div>
+        <!-- <audio src="audio/right.mp3" id="right"></audio> -->
+    </div>
+
+<!-- 长按海报保存 -->
+    <div class="page4">
+        <img style="height: 168.5vw;width: 100vw;opacity:100; position: absolute;  left: 0;top: 0; pointer-events: none; z-index: 0;" src="images/poster_p1.jpg" id="saveposter">
+        <div id="poster_cover"></div>
+        <img src="images/poster_p1.jpg" alt="" id="poster">
+        <div id="poster_mask"></div>
+        <div id="poster_back"></div>
+        <div id="poster_tip"></div>
+    </div>
+<!-- html2canvas保存图片 -->
+    <div id="save" >
+
+    </div>
+</body>
+<script src="js/rellax.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script id="reloadpuzzle" src="js/puzzle.js"></script>
+
+<script>
+var queue = new createjs.LoadQueue(false);
+
+$(".page3").hide()
+$(".page4").hide()
+var bgm = document.getElementById("bgm")
+var isbgmOn = false
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    bgm.play();
+    // bgm.pause();
+    isbgmOn = true;
+    window.audio= new Audio();
+    // window.audio.src = "http://okasus.gitee.io/zuoyezuoye/audio/right.mp3"
+    window.audio.src = "audio/right.mp3"
+    window.audio.volume=0.5;
+    window.audio.load();
+    window.audio.play();
+    window.audio.pause();
+
+});
+queue.on("progress",event =>{
+    // $("#loading").css("transition","1.7s")
+    console.log(event)
+    var progress = Math.floor(event.progress*100);
+    console.log(progress);
+    console.log(progress+"%");
+    $("#progress").html(progress+"%")
+    $("#inbar").css("width",progress*96/100+"%")
+    console.log(progress)
+    if (progress == 100){
+
+    }
+})
+queue.on("complete",event =>{
+    console.log("complete!")
+    $("#loading").css("transition","1.2s")
+    setTimeout(() => {
+        MuApp()
+    }, 1500);
+})
+//大于500k的预加载
+
+queue.loadFile("font/hanyi.ttf")
+queue.loadFile("audio/BGM.mp3")
+queue.loadFile("audio/right.mp3")
+queue.loadFile("images/button.png")
+queue.loadFile("images/cat5.png")
+queue.loadFile("images/chair3.png")
+queue.loadFile("images/click.gif")
+queue.loadFile("images/clickrm.png")
+queue.loadFile("images/dog5.png")
+queue.loadFile("images/enter_button.png")
+queue.loadFile("images/fence1.png")
+queue.loadFile("images/file.json")
+queue.loadFile("images/floor.png")
+queue.loadFile("images/frame1.png")
+queue.loadFile("images/frame2.png")
+queue.loadFile("images/frame3.png")
+queue.loadFile("images/frame4.png")
+queue.loadFile("images/frame5.png")
+queue.loadFile("images/frame6.png")
+queue.loadFile("images/json.js")
+queue.loadFile("images/light-b.png")
+queue.loadFile("images/light-s.png")
+queue.loadFile("images/load.gif")
+queue.loadFile("images/loading_1.png")
+queue.loadFile("images/loading_12.gif")
+queue.loadFile("images/loading_2.png")
+queue.loadFile("images/loading_bg.png")
+queue.loadFile("images/loading_logo.png")
+queue.loadFile("images/p1.png")
+queue.loadFile("images/p1_1.png")
+queue.loadFile("images/p1_2.png")
+queue.loadFile("images/p1_3.png")
+queue.loadFile("images/p1_4.png")
+queue.loadFile("images/p1_5.png")
+queue.loadFile("images/p1_6.png")
+queue.loadFile("images/p1_sprite.jpg")
+queue.loadFile("images/p1_title.png")
+queue.loadFile("images/p2.png")
+queue.loadFile("images/p2_1.png")
+queue.loadFile("images/p2_2.png")
+queue.loadFile("images/p2_3.png")
+queue.loadFile("images/p2_4.png")
+queue.loadFile("images/p2_5.png")
+queue.loadFile("images/p2_6.png")
+queue.loadFile("images/p2_sprite.jpg")
+queue.loadFile("images/p2_title.png")
+queue.loadFile("images/p3.png")
+queue.loadFile("images/p3_1.png")
+queue.loadFile("images/p3_2.png")
+queue.loadFile("images/p3_3.png")
+queue.loadFile("images/p3_4.png")
+queue.loadFile("images/p3_5.png")
+queue.loadFile("images/p3_6.png")
+queue.loadFile("images/p3_sprite.jpg")
+queue.loadFile("images/p3_title.png")
+queue.loadFile("images/p4.png")
+queue.loadFile("images/p4_1.png")
+queue.loadFile("images/p4_2.png")
+queue.loadFile("images/p4_3.png")
+queue.loadFile("images/p4_4.png")
+queue.loadFile("images/p4_5.png")
+queue.loadFile("images/p4_6.png")
+queue.loadFile("images/p4_sprite.jpg")
+queue.loadFile("images/p4_title.png")
+queue.loadFile("images/p5.png")
+queue.loadFile("images/p5_1.png")
+queue.loadFile("images/p5_2.png")
+queue.loadFile("images/p5_3.png")
+queue.loadFile("images/p5_4.png")
+queue.loadFile("images/p5_5.png")
+queue.loadFile("images/p5_6.png")
+queue.loadFile("images/p5_sprite.jpg")
+queue.loadFile("images/p5_title.png")
+queue.loadFile("images/p6.png")
+queue.loadFile("images/p6@0.5x.png")
+queue.loadFile("images/p6_1.png")
+queue.loadFile("images/p6_2.png")
+queue.loadFile("images/p6_3.png")
+queue.loadFile("images/p6_4.png")
+queue.loadFile("images/p6_5.png")
+queue.loadFile("images/p6_6.png")
+queue.loadFile("images/p6_sprite.jpg")
+queue.loadFile("images/p6_title.png")
+queue.loadFile("images/p_p1.png")
+queue.loadFile("images/p_p2.png")
+queue.loadFile("images/p_p3.png")
+queue.loadFile("images/p_p4.png")
+queue.loadFile("images/p_p5.png")
+queue.loadFile("images/p_p6.png")
+queue.loadFile("images/plant2.png")
+queue.loadFile("images/plant4.png")
+queue.loadFile("images/plant6.png")
+queue.loadFile("images/poster_back.png")
+queue.loadFile("images/poster_bg.png")
+queue.loadFile("images/poster_p1.jpg")
+queue.loadFile("images/poster_p2.jpg")
+queue.loadFile("images/poster_p3.jpg")
+queue.loadFile("images/poster_p4.jpg")
+queue.loadFile("images/poster_p5.jpg")
+queue.loadFile("images/poster_p6.jpg")
+queue.loadFile("images/poster_save.png")
+queue.loadFile("images/poster_tip.png")
+queue.loadFile("images/puzzle_back.png")
+queue.loadFile("images/puzzle_bg.png")
+queue.loadFile("images/puzzle_frame.png")
+queue.loadFile("images/puzzle_lines.png")
+queue.loadFile("images/puzzle_share.png")
+queue.loadFile("images/puzzle_story.png")
+queue.loadFile("images/puzzle_tip.png")
+queue.loadFile("images/sofa6.png")
+queue.loadFile("images/sprite.jpg")
+queue.loadFile("images/story1.png")
+queue.loadFile("images/story2.png")
+queue.loadFile("images/story3.png")
+queue.loadFile("images/story4.png")
+queue.loadFile("images/story5.png")
+queue.loadFile("images/story6.png")
+queue.loadFile("images/story_bg_1.png")
+queue.loadFile("images/story_bg_2.png")
+queue.loadFile("images/story_bg_3.png")
+queue.loadFile("images/story_bg_4.png")
+queue.loadFile("images/story_bg_5.png")
+queue.loadFile("images/story_bg_6.png")
+queue.loadFile("images/volume.svg")
+queue.loadFile("images/wall1-l.png")
+queue.loadFile("images/wall1.png")
+queue.loadFile("images/wall2.png")
+queue.loadFile("images/wall3-l.png")
+queue.loadFile("images/wall3.png")
+queue.loadFile("images/wall4.png")
+queue.loadFile("images/wall5-l.png")
+queue.loadFile("images/wall5.png")
+queue.loadFile("images/wall6.png")
+
+var winh = Math.floor(innerHeight/10)
+console.log("winh="+winh)
+
+if(winh>=6){
+    $("#p_title").css("top","11vh")
+    $("#p_story").css("top","51%")
+    
+}
+if(winh <=5){
+    $("#p_title").css("top","7.5vh")
+    $("#p_story").css("top","51.5%")
+    $("#poster").css({
+        "width":"90vw",
+        "height":"151.875vw"
+    })
+    $("#poster_tip").css({
+        "width":"20vw",
+        "height":"8.965vw",
+        "top":"100vw"
+    })
+    $("#poster_back").css({
+        "top":"140vw"
+    })
+    $("#poster_mask").css({
+        "top":"145vw"
+    })
+}
+
+
+
+//BGM 控制 page0
+var bgmcontrol = document.getElementById("bgmcontrol");
+bgmcontrol.onclick = function(){
+    if(isbgmOn){
+        bgm.pause();
+        isbgmOn =false
+        $("#isbgmOn").addClass("isbgmOn")
+
+    }else if(!isbgmOn){
+        bgm.play();
+        isbgmOn =true;
+        $("#isbgmOn").removeClass("isbgmOn")
+    }
+}
+
+
+window.onbeforeunload = function(){
+    document.documentElement.scrollLeft = 0;  //ie下
+    document.body.scrollLeft = 0;  //非ie
+}
+
+
+var colorArr = ["#fce2c1","#fff1b9","#884e45","#cdc580","#eedebb","#8da1b2"]
+function MuApp(){
+    $(".loader").css("opacity","0");
+    setTimeout(function(){$("#loading").css("opacity","0");},100)
+    var h = $(window).height();
+    var w = $(window).width();
+    var timesop = h / 640;
+    var timespgif = 0.94*w/538 ;
+    $("#open").css("transform","translate(-50%,-50%) scale("+timesop+")")
+    $("#openani").css("animation","anim1 4s 1s steps(76) both")
+    $("#p_gif").css("transform","translate(-50%,-50%) scale("+timespgif+")")
+    
+    
+    
+    var flag = true;
+     setInterval(function(){
+        
+        $('#openani').on('animationend webkitAnimationEnd', function() { 
+            if(flag == true){
+                $("#opbtn").css("opacity","1");
+                setTimeout(function(){
+                    flag = false;
+                },200)
+            }
+            if(flag == false){              
+                    $(".white").css("opacity","0")
+                    $(".page1").css("display","none")
+                    $("html").css("overflow","scroll")
+                    $("#loading").css("display","none")
+            }
+             
+        });
+    },100)
+    $("#opbtn").click(function(){
+        $("#openani").css("animation","anim2 1s 1s steps(17) both")
+        $("#opbtn").css("opacity","0")
+        // setTimeout(function(){
+        //     bgm.play();
+        // },1000)
+    })
+    var rellax = new Rellax('.rellax', {
+        speed: -2,
+        center: false,
+        wrapper: null,
+        round: true,
+        vertical: false,
+        horizontal: true
+    })
+    $(document).scroll(function() {
+        var w = $("#ssix").offset().left + $("#ssix").width()
+        $(".page2").css("width",w)
+    })
+    
+        
+    var pici;
+    $(".img").bind("click",function(){
+        pici = $(".img").index($(this))+1
+        changeImage()
+        setTimeout(function(){
+            $("#puzzle").fadeIn();
+            $(".page3").fadeIn("slow");
+        },100)
+        
+    })
+    var gifSteps = ["steps(49)","steps(49)","steps(19)","steps(49)","steps(29)","steps(49)"];
+    var gifWidth = ["-19600px","-19600px","-7600px","-19600px","-11600px","-19600px"];
+    var gifDuration = ["5s","5s","2s","5s","3s","5s"];
+
+    function changeImage() {
+        console.log(pici)
+        $("#piece1").attr("xlink:href","images/p"+pici+"_1.png")
+        $("#piece2").attr("xlink:href","images/p"+pici+"_2.png")
+        $("#piece3").attr("xlink:href","images/p"+pici+"_3.png")
+        $("#piece4").attr("xlink:href","images/p"+pici+"_4.png")
+        $("#piece5").attr("xlink:href","images/p"+pici+"_5.png")
+        $("#piece6").attr("xlink:href","images/p"+pici+"_6.png")
+        $("#back image").attr("xlink:href","images/p_p"+pici+".png")
+        $("#p_title").attr("src","images/p"+pici+"_title.png")
+        $("#p_tip").css("background-image","url(images/puzzle_tip.png)")
+        $("#poster").attr("src","images/poster_p"+pici+".jpg")
+        $("#saveposter").attr("src","images/poster_p"+pici+".jpg")
+        $("#poster_cover").css("background-image","url(images/poster_p"+pici+"_bg.png)")
+        document.documentElement.style.setProperty("--postercolor", colorArr[pici-1]);
+        $("html").css("overflow","hidden")
+        changePani(pici,gifSteps[pici-1],gifWidth[pici-1],gifDuration[pici-1])
+       
+    }
+    function changePani(index,steps,width,duration){
+        $("#p_gif").css("background-image","url(images/p"+index+"_sprite.jpg)")
+        $("#p_story").css("background-image","url(images/story_bg_"+index+".png)")
+        $("#p_words").css("background-image","url(images/story"+index+".png)")
+        document.documentElement.style.setProperty("--steps", steps);
+        document.documentElement.style.setProperty("--width", width);
+        document.documentElement.style.setProperty("--duration", duration);
+       
+        
+    }
+}
+
+</script>
+
+</html>
+  
